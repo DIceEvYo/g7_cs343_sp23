@@ -16,20 +16,11 @@ Total of 11 Required (chance that there might be more) Pages::
 11. Edit Profile
 """
 
-
-# newWindow = Tk()
-# newWindow.title("Landlord")
-# newWindow.geometry('640x360')
-# #Log In Screen
-# LogNlbl = Label(newWindow, text="Welcome back Landlord!",
-#                 font=("Arial", 25)).pack()
-# button = Button(newWindow).place(relx = 0.5, rely = 0.5)
-
-# newWindow.mainloop()
-
 #https://www.geeksforgeeks.org/create-first-gui-application-using-python-tkinter/#
 #https://www.geeksforgeeks.org/how-to-change-the-tkinter-label-font-size/
 #https://docs.google.com/document/d/14x8v2uO6NDCCJBbFalxzG08It_grOTvClJ_zzuFdYtY/edit
+
+#https://www.geeksforgeeks.org/tkinter-application-to-switch-between-different-page-frames/
 
 """
 Group 7 James Lynch, Karla Chuprinski, 
@@ -45,23 +36,41 @@ TheDatabase = Database('tenants.txt')
 TheDatabase.printDataBase()
 
 def main():
-  print("Welcome! Please login!")
-  getTenantList = true
-  if (getTenantList):
-    TheDatabase.getTenantList()
-    
-  for i in range(total_rows):
-            for j in range(total_columns):
-                 
-                e = Entry(newWindow, width=20, fg='blue',
-                               font=('Arial',16,'bold'))
-                 
-                e.grid(row=i, column=j)
-                e.insert(END, lst[i][j])
-              
-  newWindow.mainLoop()
+  program = LandlordApplication()
+
+  # program.createTenant()
+  # program.createTenant()
+  
+  # program.readTenants()
+  
+  # print(TheDatabase.getTenant(1))
+  newWindow = Tk()
+  newWindow.title("Landlord")
+  newWindow.geometry('640x360')
+  #Log In Screen
+  LogNlbl = Label(newWindow, text="Welcome back Landlord!",
+                  font=("Arial", 25)).grid()
+
+  program.addTableUI(newWindow, TheDatabase.getTenantList())
+  
+  newWindow.mainloop()
+  
 class LandlordApplication:
 
+  def addTableUI(self, window, data):
+    # Matrix is list of list
+    rowLength = len(data)
+    columnLength = len(data[0])
+    
+    for rows in range(rowLength):
+      for cell in range(columnLength):
+  
+          e = Entry(window, width=10, fg='blue',
+                         font=('Arial',16,'bold'))
+           
+          e.grid(row=rows + 1, column= cell)
+          e.insert(END, data[rows][cell])
+        
   def readTenants(self):
     #Reads information from tenants file
     #Organized by lastName, firstName, unitNumber, phoneNumber, email
@@ -126,12 +135,6 @@ class LandlordApplication:
       for line in file:
         pass
 
+main()
 
-program = LandlordApplication()
 
-program.createTenant()
-program.createTenant()
-
-program.readTenants()
-
-print(TheDatabase.getTenant(1))

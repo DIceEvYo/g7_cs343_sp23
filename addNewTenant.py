@@ -1,6 +1,8 @@
 from tkinter import *
 import Homepage
 import database3
+import PIL
+from PIL import Image, ImageTk
 
 def addNewTenant():
   """
@@ -70,7 +72,7 @@ def addNewTenant():
 
   #Add a button to save the tenant information
   Button(addTenantWindow, text="Submit", font=font,
-         command=appendTenant).grid(row=8, column=0, columnspan=2, pady=20)
+         command=appendTenant).grid(row=3, column=1, columnspan=2, pady=20)
 
   # Add a button to return to the homepage
   Button(addTenantWindow, text="Homepage", font=font,
@@ -78,4 +80,11 @@ def addNewTenant():
   #Start the main loop
   errorLabel = Label(addTenantWindow, font=font)
   errorLabel.grid(row=9, column=0, columnspan=2, pady=20)
+
+  # Display the best part of the program
+  bestFriend = ImageTk.PhotoImage(PIL.Image.open("profile.png").resize((80, 80)))
+  profile_label = Label(addTenantWindow, image=bestFriend, bg='white')
+  profile_label.image = bestFriend
+  profile_label.grid(row=3, column=0, padx=20, pady=20)
+
   addTenantWindow.mainloop()

@@ -2,10 +2,12 @@ from tkinter import *
 import database3
 import Homepage
 import tenantList
+import PIL
+from PIL import Image, ImageTk
 
 def addNewIncome():
   """
-  Allows user to add a new tenant to the database.
+  Allows user to add a new income to the database.
   """
 
   """Window Initialization"""
@@ -90,7 +92,7 @@ def addNewIncome():
 
   # Add a button to return to the homepage
   Button(addNewIncWindow, text="Homepage", font=font,
-         command=homePage).grid(row=10, column=0, columnspan=2, pady=20)
+         command=homePage).grid(row=10, column=1, columnspan=2, pady=20)
 
   # Add a button to check tenant List
   Button(addNewIncWindow, text="Tenant List", font=font,
@@ -98,5 +100,12 @@ def addNewIncome():
 
   errorLabel = Label(addNewIncWindow, font=font)
   errorLabel.grid(row=9, column=0, columnspan=2, pady=20)
+
+  # Display the best part of the program
+  bestFriend = ImageTk.PhotoImage(PIL.Image.open("profile.png").resize((80, 80)))
+  profile_label = Label(addNewIncWindow, image=bestFriend, bg='white')
+  profile_label.image = bestFriend
+  profile_label.grid(row=0, column=0, padx=20, pady=20)
+
   # Start the main loop
   addNewIncWindow.mainloop()

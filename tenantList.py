@@ -2,6 +2,8 @@ from tkinter import *
 from tkinter import ttk
 import Homepage
 import database3
+import PIL
+from PIL import Image, ImageTk
 
 
 def TenantList():
@@ -122,6 +124,12 @@ def TenantList():
                                            side=BOTTOM,
                                            padx=20,
                                            pady=20)
+
+    # Display the best part of the program
+    bestFriend = ImageTk.PhotoImage(PIL.Image.open("profile3.jpg").resize((80, 80)))
+    profile_label = Label(tenantListWindow, image=bestFriend, bg='white')
+    profile_label.image = bestFriend
+    profile_label.pack(padx=20, pady=20)
     #Start the main loop
     tenantListWindow.mainloop()
   

@@ -4,8 +4,10 @@ import tenantList
 import addNewTenant
 import addNewExpense
 import addNewIncome
-from annualSummary import *
+import annualSummary
 import rentalIncomeRecord
+import PIL
+from PIL import Image, ImageTk
 
 def homepage():
     """
@@ -45,10 +47,9 @@ def homepage():
         homePageWindow.destroy()
         addNewIncome.addNewIncome()
 
-    #TODO
     def annualSummaryButtonClicked():
         homePageWindow.destroy()
-        annualSummary()
+        annualSummary.annualSummary()
 
     """Window Contents"""
     #Add buttons for the different features
@@ -59,6 +60,15 @@ def homepage():
     Button(homePageWindow, text="Annual Summary", font=font, command=annualSummaryButtonClicked).grid(row=7, column=1, padx=10, pady=10)
     Button(homePageWindow, text="Rental Income", font=font, command=rentalIncomeButtonClicked).grid(row=7, column=2, padx=10, pady=10)
     Button(homePageWindow, text="Add Income", font=font, command=addIncomeButtonClicked).grid(row=8, column=1, padx=10, pady=10)
+
+    #Display the best part of the program
+    bestFriend = ImageTk.PhotoImage(PIL.Image.open("profile1.png").resize((80, 80)))
+    profile_label = Label(homePageWindow, image=bestFriend, bg='white')
+    profile_label.image = bestFriend
+    profile_label.grid(row=0, column=0, padx=20, pady=20)
+
+    Label(homePageWindow, text=f"Welcome!", font=font,
+          bg='white').grid(row=0, column=1, padx=20, pady=20)
 
     #Start the main loop
     homePageWindow.mainloop()

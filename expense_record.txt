@@ -98,3 +98,4 @@
 98,2016-06-10,Johnson Repairs,123.45,REPAIRS
 99,2009-12-25,Williams Plumbing,56.78,TAX
 100,2013-03-22,XYZ Services,789.01,UTIL
+101,2023-05-02,Doe Enterprises,804.71,TAX

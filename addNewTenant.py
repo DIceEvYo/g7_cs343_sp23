@@ -17,6 +17,11 @@ def addNewTenant():
   font = ("Arial", 7)
 
   """Window Commands"""
+  def homePage():
+      # Return user to the home page.
+      addTenantWindow.destroy()
+      Homepage.homepage()
+
   def appendTenant():
       #Function to save tenant information to a file
       lastname = enterLast.get()
@@ -37,6 +42,9 @@ def addNewTenant():
           addTenantWindow.destroy()
           Homepage.homepage()
           #User won't be allowed to append info without filling out all fields.
+      else:
+          # If insufficient data is provided, alert the user.
+          errorLabel.config(text="Please enter all fields.", fg="red")
 
   """Window Contents"""
   #Create labels and entry fields for each input field
@@ -64,5 +72,10 @@ def addNewTenant():
   Button(addTenantWindow, text="Submit", font=font,
          command=appendTenant).grid(row=8, column=0, columnspan=2, pady=20)
 
+  # Add a button to return to the homepage
+  Button(addTenantWindow, text="Homepage", font=font,
+         command=homePage).grid(row=10, column=0, columnspan=2, pady=20)
   #Start the main loop
+  errorLabel = Label(addTenantWindow, font=font)
+  errorLabel.grid(row=9, column=0, columnspan=2, pady=20)
   addTenantWindow.mainloop()

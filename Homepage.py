@@ -2,6 +2,8 @@ from addNewTenant import *
 import expenseRecordTable
 import tenantList
 import addNewTenant
+import addNewExpense
+import addNewIncome
 from annualSummary import *
 import rentalIncomeRecord
 
@@ -35,15 +37,15 @@ def homepage():
         homePageWindow.destroy()
         rentalIncomeRecord.rentalIncomeRecord()
 
-    #TODO
     def addExpenseButtonClicked():
         homePageWindow.destroy()
-        addNewExpense()
+        addNewExpense.addNewExpense()
 
     def addIncomeButtonClicked():
         homePageWindow.destroy()
-        addNewIncome()
+        addNewIncome.addNewIncome()
 
+    #TODO
     def annualSummaryButtonClicked():
         homePageWindow.destroy()
         annualSummary()
@@ -56,6 +58,7 @@ def homepage():
     Button(homePageWindow, text="Add Expenses", font=font, command=addExpenseButtonClicked).grid(row=7, column=0, padx=10, pady=10)
     Button(homePageWindow, text="Annual Summary", font=font, command=annualSummaryButtonClicked).grid(row=7, column=1, padx=10, pady=10)
     Button(homePageWindow, text="Rental Income", font=font, command=rentalIncomeButtonClicked).grid(row=7, column=2, padx=10, pady=10)
+    Button(homePageWindow, text="Add Income", font=font, command=addIncomeButtonClicked).grid(row=8, column=1, padx=10, pady=10)
 
     #Start the main loop
     homePageWindow.mainloop()

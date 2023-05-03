@@ -67,7 +67,7 @@ def expenseRecordTable():
       for newExpense in newExpenses:
           date = newExpense[0]
           payee = newExpense[1]
-          amount = "-" + newExpense[2]  # Add a negative sign to indicate outgoing payment
+          amount = "-$" + newExpense[2]  #Add a negative sign to indicate outgoing payment
           category = newExpense[3]
           tree.insert('', 'end', values=(date, payee, amount, category))
 

@@ -1,0 +1,82 @@
+-------------------------------------------------DATABASE CLASS HAS BEEN FINISHED-------------------------------------------------
+
+i have tested the sql db and have got it to start working on my end.
+To answer the question on where the database info gets stored, everything
+in the database gets stored in a file called landlord.db, meaning that all
+we have to do is create a table once and its there forever. To answer the methods
+of storing data, we are not getting rid of the idea of storing data in the files,
+we will still do that. The reason I wanted to work on an sql database is to get the
+data from the text files and find a way to sort and filter the data as specified in
+the List of Objects document. Unless we are not going to use any filter options, I believe
+SQL will be the most easy method for figuring out how to sort and combine data. SQL may also
+make things easy for combining the information from Rental Income and Expense Record into Annual
+ Report and then performing filtering queries on top of that. The database is not supposed to
+ replace storing data in text files, it builds upon it. If we want to filter data, I believe SQL
+ will be easy, if we want to use raw python, we'll need to consider all options of filtering data,
+ most likely using if statements and for loops which may take longer.  I've already completed most
+  of the complex work of the database, all that's needed is figuring out how we would allow users
+  to sort data and work from there. Once we figure out how users will want to sort data, all we need
+  to do is make a single query statement, a string, one line of sql and pass it in as a parameter to
+  one of the already built methods. Also as I've mentioned, I have created a reference file which describes
+   the basic functions of sql, and i have also made sure to comment most of the code that attempts to
+   make the sql database (altho there might not be a reason to read it as its pretty much done).
+   All that's left is figuring out how to make the Annual Report, and maybe finding a way to link
+   the tenants file in the database. I need to do more research on the document to figure out the
+   connections between all the data points and need a better understanding on how querying the data is going to work.
+I have just added two text files, expense_record.txt and rental_income.txt, these are the results
+of the testing i have performed upon the sql database. This database is able to read and write to
+ these files. The first item in every row in all database files are the primary keys of the provided
+ data. This makes it easy to update/delete data as you'll use this number in the database3.deleterow
+  function to delete the row from a given table. Taking a look at the expense record file, after the
+  id, we have the date, payee, amount paid, and budget category (for budget category we'll want to make
+  some sort of function that asks the landlord to specify the category, i think its easier to do this than
+   make a completely new table/list) In rental income we have the id, month (used integers to prevent spelling
+   mistakes from corrupting data, for displaying purposes on the application you could do if this index equals 1,
+    display January), apartment number, and the payment john receives
+
+   Update 3:12, 2023/04/30
+   im going to work on the db's version of tenant list and then find a way to connect it to the rental income table
+    and then as the last needed step of the database, figure out how to get the values from rental income and expense
+     record and combine it to the annual report, once that's done, the database is officially finished. Any query/filter
+     function you wish to perform, you will be able to. All that would be left to finish is the program gui and the if statements
+     that call upon the db's sql functions
+     Examples of using the db's functions can be found in testSQLDB.py
+
+     Question/Answer: 3:26
+     for the connecting question, yes once the db is finished, whatever methods need to work with data from the gui, all we need to do
+     is just paste the database methods there. As for appending data to text files, we may need to replace those with appending data to
+     the database, as the database will read/write to the files for us. To answer the question why use the database over just text files,
+      the database makes it easy to filter/select/query data, I'm also hoping it will prove useful for the task im working on right now
+      which is figuring out how to connect the tenants list to the rental income record so instead of adding redundant data, all you'll
+      need is the tenant id. But the main emphasis of using the database is the ability to query. The ability to filter.
+
+      Update 4:22
+      Tenants table has been created in the database. Now generating dummy test files of a total of 107 records for the tenants file
+      and the rental income file. The goal is now to use the tenant id to display both the rental income table and the tenants table.
+      Once that's finished i will generate 107 records for the expense record table and use what I've learned to create the Annual
+      Report part of the database. Once that's finished, all that's left is figuring out is what needs to be filtered. This step
+      depends on how much has been accomplished on the GUI portion of this project.
+
+      Update 5:16
+      When it comes to filtering data, as i mentioned the database will take care of it, all I need are just the buttons, the choices
+      the user chooses to start the filter function. From my end I will provide the code. Anyways, I have just successfully completed
+      finding a way to combine data from the Tenants table to the Rental Income Table by using a simple query. All that's left is for
+       me to work on whatever data is needed for the Annual Report and perhaps come up with the necessary queries to compose the file.
+       As for the search bar that was there on the gui design on the doc, if creating a search bar is too hard, we can skip it, but if
+        you guys can find a way to get user input, I can use sql to provide the search results
+        I will paste the dummy data files, some of the updated sql code, and the result query file (the file that has the combined data
+        of the tenants file and rental income file). Notice how in the rental income dummy file that theres a tenant id, and refer to the
+        id in the tenant to notice how the data harmoniously connects the data points together
+        You can also check out the query code from lines 62 onward in the testSQLDB.py file for reference too
+        For combined tables tenant and rental income refer to record_query.txt
+        Refer to tenant_list_dummy, rental_income_dummy, and expense_record_dummy to experiment with 107 records of data
+
+        Update 6:15
+        Annual Report Data Gathering has been completed. Please check annualreport.txt to see the results.
+        This means that the database class is officially finished.
+        All thats left is the filtering commands. But that will only be possible to implement once the GUI portion of the project
+        has caught up.
+
+-------------------------------------------------DATABASE CLASS HAS BEEN FINISHED-------------------------------------------------
+
+Please email Dev.Paul@student.csulb.edu if you have any questions. Thanks. - Dev

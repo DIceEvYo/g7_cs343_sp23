@@ -7,6 +7,8 @@ https://www.geeksforgeeks.org/create-first-gui-application-using-python-tkinter/
 https://www.geeksforgeeks.org/how-to-change-the-tkinter-label-font-size/
 https://docs.google.com/document/d/14x8v2uO6NDCCJBbFalxzG08It_grOTvClJ_zzuFdYtY/edit
 https://www.geeksforgeeks.org/tkinter-application-to-switch-between-different-page-frames/
+Image - Google
+Sample Data - ChatGpt
 """
 
 import login

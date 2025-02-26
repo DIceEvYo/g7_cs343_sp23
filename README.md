@@ -1,7 +1,7 @@
 CECS 343 - 02
 Group 7 
 
-James Lynch, Karla Chuprinski, Dev Paul, Vu Phan, William Gomez, Camelia Sama
+James Lynch, Karla Chuprinski, Dev, Vu Phan, William Gomez, Camelia Sama
 
 05/02/2023
 
